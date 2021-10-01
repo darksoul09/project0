@@ -19,7 +19,7 @@ ENV	VNC_PASS="samplepass" \
 #NoVNC Port
 	NOVNC_PORT=$PORT \
 #Ngrok Token (Strictly use private token if using the service)
-	NGROK_AUTH_TOKEN="1xM4IHjFpX4CwPYr82zZJH9ZjYQ_5kmfqfXit97FkTYSGUrZJ" \
+	NGROK_AUTH_TOKEN="1yAEZaoUey48AHUVH4uMd1ZXnt3_tuwTEG3AHwt5rLBjtgah" \
 #Locale
 	LANG=en_US.UTF-8 \
 	LANGUAGE=en_US.UTF-8 \
@@ -103,29 +103,11 @@ RUN rm -f /etc/apt/sources.list && \
 #TimeZone
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	echo $TZ > /etc/timezone && \
-#VS Code
-	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg && \
-	install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/ && \
-	echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list && \
-	rm -f packages.microsoft.gpg && \
-	apt-get update && \
-	apt-get install code -y && \
 #Brave
 	curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && \
 	echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list && \
 	apt-get update && \
 	apt-get install brave-browser -y && \
-#PeaZip
-	wget https://github.com/peazip/PeaZip/releases/download/8.1.0/peazip_8.1.0.LINUX.x86_64.GTK2.deb -P /tmp && \
-	apt-get install -y /tmp/peazip_8.1.0.LINUX.x86_64.GTK2.deb && \
-#Sublime
-	curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add - && \
-	add-apt-repository "deb https://download.sublimetext.com/ apt/stable/" && \
-	apt-get install -y sublime-text && \
-#Telegram
-	wget https://updates.tdesktop.com/tlinux/tsetup.2.9.2.tar.xz -P /tmp && \
-	tar -xvf /tmp/tsetup.2.9.2.tar.xz -C /tmp && \
-	mv /tmp/Telegram/Telegram /usr/bin/telegram && \
 #PowerShell
 	wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -P /tmp && \
 	apt-get install -y /tmp/packages-microsoft-prod.deb && \
