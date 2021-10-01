@@ -108,6 +108,14 @@ RUN rm -f /etc/apt/sources.list && \
 	echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list && \
 	apt-get update && \
 	apt-get install brave-browser -y && \
+#obs
+    	apt-add-repository ppa:obsproject/obs-studio && \
+    	apt update && \
+   	apt install -qqy --no-install-recommends obs-studio && \
+   	apt update && \
+#vlc
+    	apt install -qqy --no-install-recommends vlc && \
+	apt update && \
 #PowerShell
 	wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -P /tmp && \
 	apt-get install -y /tmp/packages-microsoft-prod.deb && \
