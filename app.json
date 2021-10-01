@@ -1,9 +1,9 @@
 {
-    "name": "Vubuntu",
-    "description": "Fully fledged Ubuntu NoVNC, refer readme for more info.",
-    "repository": "https://github.com/vital987/vubuntu.git",
-    "logo": "https://imgur.com/1qCGUwK.png",
-    "keywords": ["docker","ubuntu", "vscode", "novnc", "firefox", "brave", "fluxbox", "linux", "remote", "ssh", "vnc", "vubuntu"],
+    "name": "Project",
+    "description": "Hello",
+    "repository": "https://github.com/darksoul09/project0.git",
+    "logo": "https://art.pixilart.com/3cb4d81b3f14dac.png",
+    "keywords": ["docker"],
     "stack": "container",
     "env": {
       "VNC_TITLE" : {
