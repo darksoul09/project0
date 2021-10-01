@@ -2,8 +2,6 @@ FROM ubuntu:20.04
 
 LABEL AboutImage "Ubuntu20.04_Fluxbox_NoVNC"
 
-LABEL Maintainer "Apoorv Vyavahare <apoorvvyavahare@pm.me>"
-
 ARG DEBIAN_FRONTEND=noninteractive
 
 #VNC Server Password
